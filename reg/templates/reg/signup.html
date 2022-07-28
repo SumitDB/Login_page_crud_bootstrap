@@ -1,0 +1,49 @@
+{% extends 'reg/base.html' %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid jumbo-color">
+<div class="d-flex justify-content-center">
+    <div class="container">
+            <br> 
+            <h3 class="text-center display-4 font-weight-bold">Signup Account</h3>
+            <br>
+        <div class="d-flex justify-content-center form_container">
+            <form method="POST" action="" novalidate>
+                {% csrf_token %}
+                    {{form.as_p}}
+                <div class="d-flex justify-content-center mt-3 login_container">
+                    <input class="btn login_btn " type="submit" value="Submit">
+                </div>
+                <p> {% if form.non_field_errors %}
+                    {% for error in form.non_field.errors %}
+                    {{ error }}
+                    {% endfor %}
+                    {% endif %}</p>
+                {% if messages %}
+                {% for messages in messages %}
+                <small {% if messages.tags %} class="{{ message.tags}}" {% endif %}> {{messages}}
+                </small>
+                {% endfor %}
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+</div>
+<script>
+    //Query All input fields
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = 'First Name';
+    form_fields[2].placeholder = 'Last Name';
+    form_fields[3].placeholder = 'Username';
+    form_fields[4].placeholder = 'Email';
+    form_fields[5].placeholder = 'Password';
+    form_fields[6].placeholder = 'Confirm Password';
+    for (var field in form_fields) {
+        form_fields[field].className += ' form-control'
+    }
+</script>
+{% endblock content %}

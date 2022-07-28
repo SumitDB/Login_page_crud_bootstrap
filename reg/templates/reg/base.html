@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login and Regrestration Page</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+		integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+	<link rel="stylesheet" href=" {% static 'reg/css/bootstrap.min.css'%}">
+	<link rel="stylesheet" href=" {% static 'reg/css/style.css'%}">
+	<script src="{% static 'fontawesomepro/js/all.min.js' %}"></script>
+</head>
+
+<body>
+	<div class="container-fluid bg-dark">
+		{% include 'reg/navbar.html' %}
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				{% block msg %}
+				{% endblock msg %}
+			</div>
+		</div>
+		<div class="row">
+			{% block side %}
+			{% endblock side %}
+
+			{% block content %}
+			{% endblock content %}
+		</div>
+	</div>
+
+	<script src="{% static ' reg/js/jquery.js' %}"></script>
+	<script src="{% static ' reg/js/popper.js' %}"></script>
+	<script src="{% static ' reg/js/bootstrap.js' %}"></script>
+</body>
+
+</html>
