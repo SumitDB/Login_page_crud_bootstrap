@@ -9,7 +9,7 @@
         <h6 class="lead text-center">
             {% if messages %}
             {% for message in messages %}
-            <div {% if message.tags %} class="{{ messages.tags}}" {% endif %}>
+            <div {% if message.tags %} class="{{ messages.tags}} text-warning" {% endif %}>
                 {{message}}
             </div>
             {% endfor %}
@@ -17,7 +17,7 @@
         </h6>
         <br>
         <div class="col-sm-8 offset-2">
-            <form action="" menthod="POST">
+            <form action="{% url 'updatedata' id %}" method="POST">
                 {% csrf_token %}
                 {{formm.as_p}}
                 <input type="submit" class="btn btnnn" value="Update">

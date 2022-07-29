@@ -96,12 +96,13 @@ def Update_data(request, id):
         if fmm.is_valid():
             fmm.save()
             messages.success(request,'You have successfully edited the customer !!')
-            return render(request, 'reg/updatecustomer.html')
+            return render(request, 'reg/updatecustomer.html',{'formm':fmm, 'id':id})
         
 def View_data(request,id):
     if request.user.is_authenticated:
         pi = Customer.objects.get(pk=id)
-        fmm = CustomerReg(instance=pi)        
+        fmm = CustomerReg(instance=pi)      
+
         return render(request, 'reg/updatecustomer.html',{'formm':fmm, 'id':id})
     else:
         return HttpResponseRedirect('/login/')
