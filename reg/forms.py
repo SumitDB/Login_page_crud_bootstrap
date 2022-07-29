@@ -9,7 +9,6 @@ class SignUpForm(UserCreationForm):
                                 widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     password1 = forms.CharField(
         label='Password', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
-
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', ]
@@ -20,8 +19,6 @@ class SignUpForm(UserCreationForm):
             'email': forms.EmailInput(attrs={'class': 'form-control '}),
             'username': forms.TextInput(attrs={'class': 'form-control'}),
         }
-
-
 class LoginForm(UserCreationForm):
     class Meta:
         model = User
@@ -30,8 +27,6 @@ class LoginForm(UserCreationForm):
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
             'username': forms.TextInput(attrs={'class': 'form-control'}),
         }
-
-
 class CustomerReg(forms.ModelForm):
     class Meta:
         model = Customer

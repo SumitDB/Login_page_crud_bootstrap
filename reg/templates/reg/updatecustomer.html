@@ -5,7 +5,7 @@
 <div class="jumbotron jumbotron-fluid jumbo-color">
     <div class="container">
         <br>
-        <h1 class="text-center display-4 font-weight-bold">Update Customer Information</h1>
+        <h1 class="text-center display-4 font-weight-bold">Update Customer Information {{id}}</h1>
         <h6 class="lead text-center">
             {% if messages %}
             {% for message in messages %}
@@ -17,12 +17,13 @@
         </h6>
         <br>
         <div class="col-sm-8 offset-2">
-            <form action="" menthod="POST">
+            <form action="" menthod="post">
                 {% csrf_token %}
                 {{formm.as_p}}
                 <input type="submit" class="btn btnnn" value="Update">
             </form>
             <br>
             <br>
+        </div>
         </div>
         {% endblock content %}

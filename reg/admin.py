@@ -4,4 +4,4 @@ from .models import Customer
 
 @admin.register(Customer)
 class UserAdmin(admin.ModelAdmin):
-    list_display=('name', 'email', 'city')
+    list_display=('id','name', 'email', 'city')

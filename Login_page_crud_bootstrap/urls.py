@@ -23,7 +23,7 @@ urlpatterns = [
     path('login/', views.User_login, name='login'),
     path('profile/', views.User_profile, name='profile'),
     path('logout/', views.User_logout, name='logout'),
-    path('/<int:id>/', views.Update_data, name='updatedata'),
+    path('<int:id>/', views.Update_data, name='updatedata'),
     path('delete/<int:id>/', views.Delete_data, name='deletedata'),
     path('customer/', views.Customers, name='customer'),
 

@@ -1,7 +1,7 @@
 
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .forms import SignUpForm , CustomerReg
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -72,20 +72,35 @@ def Delete_data(request, id):
     if request.method == 'POST':
         pi = Customer.objects.get(pk=id)
         pi.delete()
+        messages.success(request,'You have successfully deleted the customer !!')
         return HttpResponseRedirect('/customer/')
 
 # This function will update
 def Update_data(request, id):
+    # context ={}
+    # # fetch the object related to passed id
+    # obj = get_object_or_404(Customer, id = id)
+    # # pass the object as instance in form
+    # formm = CustomerReg(request.POST or None, instance = obj)
+    # # save the data from the form and
+    # # redirect to detail_view
+    # if formm.is_valid():
+    #     formm.save()
+    #     return HttpResponseRedirect("reg/updatecustomer.html/",{'id':id})
+    # # add form dictionary to context
+    # context["formm"] = formm
+    # return render(request, "reg/updatecustomer.html", context)
     if request.method == 'POST':
         pi = Customer.objects.get(pk = id)
         fmm = CustomerReg(request.POST, instance=pi)
         if fmm.is_valid():
             fmm.save()
-            return HttpResponseRedirect('/customer/')
+            messages.success(request,'You have successfully edited the customer !!')
+            return render(request, 'reg/updatecustomer.html',{'formm':fmm, 'id':id})
     else:
         pi = Customer.objects.get(pk=id)
         fmm = CustomerReg(instance=pi)        
-    return render(request, 'reg/updatecustomer.html',{'formm':fmm})
+    return render(request, 'reg/updatecustomer.html',{'formm':fmm, 'id':id})
 
 
 
