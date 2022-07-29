@@ -17,7 +17,7 @@
         </h6>
         <br>
         <div class="col-sm-8 offset-2">
-            <form action="" menthod="post">
+            <form action="" menthod="POST">
                 {% csrf_token %}
                 {{formm.as_p}}
                 <input type="submit" class="btn btnnn" value="Update">
@@ -25,5 +25,6 @@
             <br>
             <br>
         </div>
-        </div>
-        {% endblock content %}
+    </div>
+</div>
+    {% endblock content %}

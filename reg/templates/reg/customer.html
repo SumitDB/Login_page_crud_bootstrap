@@ -40,7 +40,7 @@
                             <td>{{ st.name }}</td>
                             <td>{{ st.email }}</td>
                             <td>{{ st.city }}</td>
-                            <td class="text-center"><a href="{%  url 'updatedata' st.id %}" class="btn ">Edit</a>
+                            <td class="text-center"><a href="{%  url 'viewdata' st.id %}" class="btn ">Edit</a>
                                 <form action="{% url 'deletedata' st.id %}" method="POST" class="d-inline ">
                                     {% csrf_token %}
                                     <input type="submit" class="btn" onclick="return confirm('Do you really want to delete?');" value="Delete" >
