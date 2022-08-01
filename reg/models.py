@@ -7,10 +7,6 @@ class User(models.Model):
     Mobile_no=models.IntegerField()
     Password=models.CharField(max_length=10)
 
-
-
-
-
 class Customer(models.Model):
     name=models.CharField(max_length=70)
     email=models.EmailField(max_length=100)

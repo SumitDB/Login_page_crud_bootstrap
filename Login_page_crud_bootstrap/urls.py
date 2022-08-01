@@ -26,5 +26,5 @@ urlpatterns = [
     path('updatedata/<int:id>/', views.Update_data, name='updatedata'),
     path('delete/<int:id>/', views.Delete_data, name='deletedata'),
     path('customer/', views.Customers, name='customer'),
-    path('viewdata/<int:id>', views.View_data, name='viewdata')
+    path('viewdata/<int:id>', views.View_data, name='viewdata'),
 ]
